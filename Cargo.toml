@@ -4,3 +4,26 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+syn = { version = "2.0", features = ["full", "extra-traits"] }  # AST Parsing (Rust Macros)
+quote = "1.0"              # Code generation (helps with transforming AST)
+proc-macro2 = "1.0"        # Low-level AST handling
+serde = { version = "1.0", features = ["derive"] }  # Serialization for config and AST
+serde_json = "1.0"         # JSON parsing (if needed for logging or AST representation)
+regex = "1.10"            # Regular expressions (for pattern matching in transformations)
+log = "0.4"               # Logging system
+env_logger = "0.10"       # Environment-based logging (helps debug transformations)
+thiserror = "1.0"         # Custom error handling for better error messages
+anyhow = "1.0"            # General-purpose error handling
+rayon = "1.7"             # Parallelism for AST traversal (if needed)
+
+
+# Solidity parsing
+tree-sitter = "0.24"
+tree-sitter-solidity = "1.2.11"
+
+# Python interoperability
+pyo3 = { version = "0.20", features = ["extension-module"] }
+
+[dev-dependencies]
+criterion = "0.5"
+proptest = "1.2"
